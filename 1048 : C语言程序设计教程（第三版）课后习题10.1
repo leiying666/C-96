@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+void Px(int a[], int sz)
+{
+    int i, j, k;
+    for (i = 1; i < sz; i++)
+    {
+        k = i - 1;
+        for (j = i; j < sz; j++)
+        {
+            if (a[k] > a[j])
+            {
+                k = j;
+            }
+        }
+        int tmp = a[k];
+        a[k] = a[i-1];
+        a[i-1] = tmp;
+    }
+}
+int main()
+{
+    int a[3] = {0};
+    int i = 0;
+    for (i = 0; i < 3; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    Px(a, 3);
+    i = 0;
+    for (i = 0; i < 3; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    return 0;
+}
